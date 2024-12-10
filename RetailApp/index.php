@@ -1,6 +1,3 @@
-<?php
-session_start();
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,11 +24,11 @@ session_start();
                 <form action="login.php" method="POST">
                     <div class="mb-2">
                         <label class="form-label" for="username">Username</label>
-                        <input class="form-control" type="text" name="username" placeholder="Username">
+                        <input class="form-control" type="text" name="username">
                     </div>
                     <div class="mb-2">
                     <label class="form-label" for="password">Password</label>
-                    <input class="form-control" type="password" name="password" placeholder="Password">
+                    <input class="form-control" type="password" name="password">
                     </div>
                     <div class="d-grid gap-2">
                         <button class="btn btn-primary py-3">Login</button>

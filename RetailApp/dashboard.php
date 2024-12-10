@@ -1,5 +1,6 @@
 <?php
 session_start();
+include "koneksi.php";
 if(!isset($_SESSION['login'])){
     header('location:index.php');
 }else{
@@ -11,7 +12,10 @@ if(!isset($_SESSION['login'])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Retail - Dashboard</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.css" />
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    
 </head>
 <body class="bg-secondary-subtle">
     <nav class="navbar navbar-expand-lg bg-body-tertiary shadow-sm">
@@ -27,11 +31,17 @@ if(!isset($_SESSION['login'])){
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Barang</a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="?modul=barang">Data Barang</a></li>
-                            <li><a class="dropdown-item" href="?modul=persediaan">Persediaan Barang</a></li>
+                            <li><a class="dropdown-item" href="?modul=persediaan">Persediaan</a></li>
+                            <li><a class="dropdown-item" href="?modul=kategori">Kategori</a></li>
+                            <li><a class="dropdown-item" href="?modul=pemasok">Pemasok</a></li>
                         </ul>
                     </li>
-                    <a class="nav-link" href="?modul=penjualan">Penjualan</a>
-                    <a class="nav-link" href="?modul=pengguna">Pengguna</a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="?modul=penjualan">Penjualan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="?modul=pengguna">Pengguna</a>
+                    </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <i class="bi bi-person-circle"></i>
@@ -65,9 +75,14 @@ if(!isset($_SESSION['login'])){
                 include 'modul/pengguna/index.php';
             }elseif($modul == 'profile'){
                 include 'modul/profile/index.php';
+            }elseif($modul == 'kategori'){
+                include 'modul/kategori/index.php';
+            }elseif($modul == 'pemasok'){
+                include 'modul/pemasok/index.php';
             }else{
                 include 'home.php';
             }
+           
         }
             ?>
         </div>
@@ -75,6 +90,7 @@ if(!isset($_SESSION['login'])){
     <div class="container py-3 text-center">
         <span>Copyright &copy; 2024 | Retail Application</span>
     </div>
+    <script src="https://cdn.datatables.net/2.1.8/js/dataTables.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
